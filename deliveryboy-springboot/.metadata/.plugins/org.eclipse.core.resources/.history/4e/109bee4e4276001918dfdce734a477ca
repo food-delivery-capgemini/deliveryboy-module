@@ -1,0 +1,51 @@
+package com.foodapp.deliveryboy.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.foodapp.deliveryboy.entity.DeliveryboyProfile;
+import com.foodapp.deliveryboy.service.DeliveryboyService;
+
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RestController
+public class DeliveryboyController {
+
+	@Autowired
+	private DeliveryboyService service;
+
+	@PostMapping("/deliverboy")
+	public ResponseEntity<DeliveryboyProfile> registerNewAccount(@RequestBody DeliveryboyProfile profile) {
+		DeliveryboyProfile p = service.createProfile(profile);
+		return new ResponseEntity<DeliveryboyProfile>(p, HttpStatus.CREATED);
+	}
+
+	@RequestMapping("/update")
+	public ResponseEntity<DeliveryboyProfile> update() {
+		DeliveryboyProfile profile = new DeliveryboyProfile();
+		return new ResponseEntity<DeliveryboyProfile>(service.createProfile(profile), HttpStatus.OK);
+	}
+
+	@GetMapping("/deliverboy/{email}/{password}")
+	public ResponseEntity<DeliveryboyProfile> deliveryboyLogin(@PathVariable String email, @PathVariable String password) {
+		System.out.println(email);
+		DeliveryboyProfile profile = service.deliveryboyLogin(email, password);
+		if (profile != null) {
+			return new ResponseEntity<DeliveryboyProfile>(profile, HttpStatus.OK);
+		}
+		return new ResponseEntity<DeliveryboyProfile>(HttpStatus.UNAUTHORIZED);
+
+	}
+	@GetMapping("/deliverboy/bymail/{userEmail}")
+	public ResponseEntity<DeliveryboyProfile> getUserDetailsByMail(@PathVariable String userEmail) {
+		DeliveryboyProfile profile = service.getUserDetailByMail(userEmail);
+		return new ResponseEntity<DeliveryboyProfile>(profile, HttpStatus.OK);
+	}
+}

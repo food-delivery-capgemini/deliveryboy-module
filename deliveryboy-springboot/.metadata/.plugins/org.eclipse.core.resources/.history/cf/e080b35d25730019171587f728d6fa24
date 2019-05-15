@@ -1,0 +1,16 @@
+package com.foodapp.order.dao;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.foodapp.order.entity.Order;
+
+
+public interface OrderDao extends MongoRepository<Order, String> {
+
+	
+
+	
+ 
+}
+
+

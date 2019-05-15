@@ -1,0 +1,153 @@
+<div class="container">
+
+    <table class="table table-bordered">
+        <!-- *ngIf="order && orders.length"> -->
+
+        <thead class="thead-dark">
+
+            <tr>
+                <!-- <td>
+                            <a routerLink="/order/{{order.orderId}}">
+                            
+                        </a>
+                        </td> -->
+
+                <th scope="col">OrderId</th>
+
+                <th scope="col">Price</th>
+
+                <th scope="col">Payment Type</th>
+
+                <th scope="col">Status</th>
+                        
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor=" let order of orders">
+                <td>{{order._id}}</td> 
+
+                <td>{{order.price}}</td>
+
+                <td>{{order.paymentType}}</td>
+
+                <td allign="center">
+                    <div class="container">
+
+                        <button type="button" class="btn btn-primary"
+                            [disabled]="butttonDisabled">Recieved</button>&nbsp;&nbsp;
+
+                        <button type="button" class="btn btn-primary">Delivered</button>&nbsp;&nbsp;
+
+                        <button type="button" class="btn btn-primary">Not Delivered</button>
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <!-- <tr>
+
+                    <td>1235</td>
+    
+                    <td>$250</td>
+    
+                    <td>Wallet</td>
+    
+                    <td allign="center">
+                        <div class="container">
+    
+                            <button type="button" class="btn btn-primary">Recieved</button>&nbsp;&nbsp;
+    
+                            <button type="button" class="btn btn-primary">Delievered</button>&nbsp;&nbsp;
+    
+                            <button type="button" class="btn btn-primary">Not Delievered</button>
+                        </div>
+    
+                    </td>
+    
+    
+                </tr>
+                <tr>
+
+                        <td>1236</td>
+        
+                        <td>$500</td>
+        
+                        <td>Debit card</td>
+        
+                        <td allign="center">
+                            <div class="container">
+        
+                                <button type="button" class="btn btn-primary">Recieved</button>&nbsp;&nbsp;
+        
+                                <button type="button" class="btn btn-primary">Delievered</button>&nbsp;&nbsp;
+        
+                                <button type="button" class="btn btn-primary">Not Delievered</button>
+                            </div>
+        
+                        </td>
+        
+        
+                    </tr>
+                    <tr>
+
+                            <td>1237</td>
+            
+                            <td>$100</td>
+            
+                            <td>Credit Card</td>
+            
+                            <td allign="center">
+                                <div class="container">
+            
+                                    <button type="button" class="btn btn-primary">Recieved</button>&nbsp;&nbsp;
+            
+                                    <button type="button" class="btn btn-primary">Delievered</button>&nbsp;&nbsp;
+            
+                                    <button type="button" class="btn btn-primary">Not Delievered</button>
+                                </div>
+            
+                            </td>
+            
+            
+                        </tr> -->
+
+        </tbody>
+
+        
+
+
+    </table>
+
+</div>
+<!-- <div class="container">
+    Hello World
+  <script> HELLO </script> -->
+    	<!-- <script>
+            function GetMap() {
+                var map = new Microsoft.Maps.Map('#myMap', {
+                    credentials: 'AsZ96ZCprHSshmf-NSds8V0h9WpgzFSCsz7R6LEj2eZ7Z1zqG80-i2fSz6gMjIOC'
+                });
+        
+                //Request the user's location
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var loc = new Microsoft.Maps.Location(
+                        position.coords.latitude,
+                        position.coords.longitude);
+                    console.log(position.coords.latitude);
+                    //Add a pushpin at the user's location.
+                    var pin = new Microsoft.Maps.Pushpin(loc);
+                    map.entities.push(pin);
+        
+                    //Center the map on the user's location.
+                    map.setView({ center: loc, zoom: 15 });
+                });
+            }
+            </script>
+            <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap' async defer></script>
+            <div id="myMap" style="position:relative;width:600px;height:400px;"></div> -->
+        <!-- </div> -->
+

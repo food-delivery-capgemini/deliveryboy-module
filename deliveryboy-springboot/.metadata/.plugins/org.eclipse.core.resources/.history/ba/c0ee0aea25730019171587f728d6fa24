@@ -1,0 +1,44 @@
+package com.foodapp.order.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.foodapp.order.dao.OrderDao;
+import com.foodapp.order.entity.Order;
+
+
+@Service
+public class OrderServiceImpl implements OrderService{
+	@Autowired
+	private OrderDao dao;
+	
+
+	@Override
+	public Order showOrder(Order order) {
+		return dao.save(order);
+	}
+
+	@Override
+	public Order orderStatus(int id, String status) 
+	{
+
+		Order order= dao.findById(id);
+	if(order.getStatus().equals(status))
+		{
+			return order;
+		}
+		return null;
+	}
+
+	@Override
+	public void updateOrder(Order order) {
+		dao.save(order);
+		
+	}
+
+	
+
+	
+	
+
+}

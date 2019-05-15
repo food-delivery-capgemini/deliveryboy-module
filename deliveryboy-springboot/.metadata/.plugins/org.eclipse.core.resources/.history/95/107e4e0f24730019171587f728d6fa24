@@ -1,0 +1,11 @@
+package com.foodapp.order.service;
+
+import com.foodapp.order.entity.Order;
+
+public interface OrderService {
+
+	Order showOrder(Order order);
+
+	Order orderStatus(int id, String status);
+
+}

@@ -1,0 +1,10 @@
+package com.foodapp.deliveryboy.entity;
+
+public class DeliveryboyProfile {
+	private String name;
+	private String email;
+	private String password;
+	private long contact;
+	private String address;
+
+}

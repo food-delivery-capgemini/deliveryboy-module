@@ -1,0 +1,60 @@
+package com.foodapp.order.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+@Document
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class Order {
+	
+	
+	private int _id;
+	private String paymentType;
+	private double price;
+	private String status;
+	public Order() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Order(int _id, String paymentType, double price, String status) {
+		super();
+		this._id = _id;
+		this.paymentType = paymentType;
+		this.price = price;
+		this.status = status;
+	}
+	public int get_id() {
+		return _id;
+	}
+	public void set_id(int _id) {
+		this._id = _id;
+	}
+	public String getPaymentType() {
+		return paymentType;
+	}
+	public void setPaymentType(String paymentType) {
+		this.paymentType = paymentType;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	
+	
+	
+	
+
+}

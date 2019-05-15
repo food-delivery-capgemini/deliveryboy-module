@@ -1,0 +1,174 @@
+<div class="container" style="width:40%">
+    <h4 class="text-center">Registration Form</h4>
+
+    <form class="form-horizontal" ng-submit="submit()" name="form" (ngSubmit)="registrationDetailsOfDeliveryboy()"
+        #deliveryboyForm="ngForm">
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <div class="col-sm-12">
+                <input type="text" class="form-control" id="name" placeholder="Enter name" required
+                    pattern="[a-zA-Z][a-zA-Z ]+" [(ngModel)]="deliveryboy.name" name="name" #name="ngModel">
+                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                    <div [hidden]="!name.hasError('required')">Name is required</div>
+                    <div [hidden]="!name.hasError('pattern')">Only alphabetsallowed</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Email</label>
+            <div class="col-sm-12">
+                <input type="text" class="form-control" id="email" placeholder="Enter email" required
+                    [(ngModel)]="deliveryboy.email" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                    #email="ngModel">
+                <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                    <div [hidden]="!email.hasError('required')">Email is required</div>
+                    <div [hidden]="!email.hasError('pattern')">Email format should be
+                        <small><b>joe@abc.com</b></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="form-label">Password</label>
+            <div class="col-sm-12">
+                <input type="password" class="form-control" id="password" placeholder="Enter Password"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [(ngModel)]="deliveryboy.password" name="password"
+                    required #password="ngModel" />
+                <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+                    <div [hidden]="!password.hasError('required')">Password is required</div>
+                    <div [hidden]="!password.hasError('pattern')">Must contain at least one number and one uppercase and
+                        lowercase letter, and at least 8 or more characters</div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label class="form-label">Contact</label>
+            <div class="col-sm-12">
+                <input type="number" class="form-control" id="number" placeholder="Enter Mobile Number"
+                    [(ngModel)]="deliveryboy.contact" pattern="^\d{10}$" name="Contact" required #Contact="ngModel" />
+                <div [hidden]="Contact.valid || Contact.pristine" class="alert alert-danger">
+                    <div [hidden]="!Contact.hasError('required')">Contact is required</div>
+                    <div [hidden]="!Contact.hasError('pattern')">Mobile number starting with a number between 6-9 and
+                        length should be 10</div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="form-group">
+            <label for="address">
+                <Address>Address</Address>
+            </label>
+            <div class="col-sm-12">
+                <input type="text" class="form-control" id="address" placeholder="Enter Address"
+                    [(ngModel)]="deliveryboy.address" name="address" required="required" pattern="[a-zA-Z][a-zA-Z ]+"
+                    [(ngModel)]="deliveryboy.address" address="address" #address="ngModel">
+                <div [hidden]="address.valid || address.pristine" class="alert alert-danger">
+                    <div [hidden]="!name.hasError('required')">
+                        address is required
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-block btn-primary"
+            [disabled]="deliveryboyForm.form.invalid">Register</button>
+        <br>
+
+        <div class="d-flex justify-content-center">
+            <a routerLink="/login">Already have account?Login</a>
+        </div>
+
+
+    </form>
+
+</div>
+
+
+
+
+<!-- <h1>Register</h1>
+        <div class="alert alert-warning" *ngIf="invalidRegister">{{ errorMessage }}</div>
+        <form (ngSubmit)="onSignup()" #f="ngForm">
+            <div class="form-group row">
+                <label for="username" class="col-2 col-form-label">Username</label>
+                <div class="col-6">
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        ngModel 
+                        class="form-control" 
+                        required
+                        #username="ngModel"
+                        [(ngModel)]="userName">
+                    <span 
+                        class="help-block text-danger" 
+                        *ngIf="!username.valid && username.touched">The username field is required!</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-2 col-form-label">Email</label>
+                <div class="col-6">
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        ngModel 
+                        class="form-control" 
+                        required
+                        email
+                        #email="ngModel"
+                        [(ngModel)]="emailAddress">
+                    <span 
+                        class="help-block text-danger" 
+                        *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="password" class="col-2 col-form-label">Password</label>
+                <div class="col-6">
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        ngModel 
+                        class="form-control" 
+                        required
+                        #password="ngModel"
+                        [(ngModel)]="pass1">
+                    <span 
+                        class="help-block text-danger" 
+                        *ngIf="!password.valid && password.touched">The password field is required!</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                    <label for="pass" class="col-2 col-form-label">Confirm Password</label>
+                    <div class="col-6">
+                        <input 
+                            type="password" 
+                            id="pass" 
+                            name="pass" 
+                            ngModel 
+                            class="form-control" 
+                            required
+                            #pass="ngModel"
+                            [(ngModel)]="pass2">
+                        <span 
+                            class="help-block text-danger" 
+                            *ngIf="!pass.valid && pass.touched">Please confirm your password!</span>
+                    </div>
+                </div>
+            <button class="btn btn-primary" type="submit">Sign Up</button>
+        </form> -->

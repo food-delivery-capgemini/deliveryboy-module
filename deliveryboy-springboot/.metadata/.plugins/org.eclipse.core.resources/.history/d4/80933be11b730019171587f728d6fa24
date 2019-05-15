@@ -1,0 +1,13 @@
+package com.foodapp.deliveryboy.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.foodapp.deliveryboy.entity.DeliveryboyProfile;
+
+
+@Repository
+public interface DeliveryboyDao extends JpaRepository<DeliveryboyProfile, String> {
+
+ 
+}
